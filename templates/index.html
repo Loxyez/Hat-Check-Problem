@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hat check problem</title>
+</head>
+<body>
+    <h1>Hat check problem</h1>
+    <form action="/" method="post">
+        <label for="n">Enter n:</label>
+        <input type="text" id="n" name="n" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <br>
+    {% if result is not none %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
