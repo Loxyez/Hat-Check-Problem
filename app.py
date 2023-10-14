@@ -13,23 +13,27 @@ def derangements(n: int, memo={0:1, 1: 0, 2: 1}):
     # return the result of !(n-1) * d(n - 1) + d(n - 2)
     return (n - 1) * (derangements(n - 1) + derangements(n - 2))
 
-MAX_LIMIT = 45
+MAX_LIMIT = 50
 
 @app.route('/', methods=['GET', 'POST'])
+
 def index():
     result = None
-    error = None
     if request.method == 'POST':
         try:
+
             n = int(request.form.get('n'))
-            if n > MAX_LIMIT or n <= 0:
-                error = f"You are using the maximum recursion depth exceeded Please enter a value less than {MAX_LIMIT} and more or equal to 0."
+
+            if n > MAX_LIMIT:
+                result = "infinity"
+            elif n < 0:
+                result = "Number must be > 0"
             else:
                 result = derangements(n)
         except ValueError:
             result = "Invalid input. Please enter a positive integer."
 
-    return render_template('index.html', result=result, error=error)
+    return render_template('index.html', result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)
