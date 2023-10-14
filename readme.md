@@ -1,4 +1,4 @@
-# To run this application first you have to run with
+# To run this application first you have to install you can run command with
 
 ```pip install -r requirements.txt```
 
