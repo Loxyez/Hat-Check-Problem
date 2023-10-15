@@ -13,7 +13,7 @@ def derangements(n: int, memo={0:1, 1: 0, 2: 1}):
     # return the result of !(n-1) * d(n - 1) + d(n - 2)
     return (n - 1) * (derangements(n - 1) + derangements(n - 2))
 
-MAX_LIMIT = 35
+MAX_LIMIT = 30
 
 @app.route('/', methods=['GET', 'POST'])
 
